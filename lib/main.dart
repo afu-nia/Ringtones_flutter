@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ringtones_flutter/main_binding.dart';
+import 'package:ringtones_flutter/src/data/repository/local/services/local_storage.dart';
 import 'package:ringtones_flutter/src/presentation/routes/routes.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await LocalStorage.configurePrefs();
   runApp(const MyApp());
 }
 
@@ -17,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: splashPage,
+      initialRoute: homePage,
       getPages: Routes.pages,
       initialBinding: MainBinding(),
     );
