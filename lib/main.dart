@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:ringtones_flutter/main_binding.dart';
 import 'package:ringtones_flutter/src/data/repository/local/services/local_storage.dart';
 import 'package:ringtones_flutter/src/presentation/routes/routes.dart';
+import 'package:ringtones_flutter/src/presentation/theme/theme_services.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,9 +18,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
+      themeMode: ThemeServices().theme,
       initialRoute: homePage,
       getPages: Routes.pages,
       initialBinding: MainBinding(),
