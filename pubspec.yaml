@@ -14,6 +14,8 @@ dependencies:
     sdk: flutter
   flutter_zoom_drawer: ^3.0.3
   get: ^4.6.5
+  just_audio: ^0.9.28
+  modal_bottom_sheet: ^2.1.2
   shared_preferences: ^2.0.15
 
 dev_dependencies:

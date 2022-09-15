@@ -14,7 +14,6 @@ class RepositoryImplementation implements RepositoryInterface {
   @override
   Future<ResponseRingtones> getRingtones(
       {required RequestRingtones requestRingtones}) async {
-    print('Entro a impl Repo');
     return ConnectionServices().getRingtones();
   }
 
