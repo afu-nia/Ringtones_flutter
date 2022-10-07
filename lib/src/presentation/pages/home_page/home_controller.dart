@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:ringtones_flutter/src/data/repository/local/services/audio_services.dart';
 import 'package:ringtones_flutter/src/domain/contants/global_constants.dart';
 import 'package:ringtones_flutter/src/domain/models/app_model.dart';
 import 'package:ringtones_flutter/src/domain/models/rington_model.dart';
@@ -13,15 +14,21 @@ class HomeController extends GetxController {
 
   RxBool isLoading = true.obs;
   RxList<RingtonModel> ringtons = <RingtonModel>[].obs;
+  RxBool isPlaying = false.obs;
+  RxBool isFinish = false.obs;
 
   @override
   void onInit() async {
+    await Future.delayed(
+      const Duration(seconds: 5),
+    );
     ResponseRingtones resp = await repositoryInterface.getRingtones(
       requestRingtones: RequestRingtones(
         appModel: AppModel(idApp: appId),
       ),
     );
     ringtons(resp.ringtones);
+    isLoading(false);
     super.onInit();
   }
 }

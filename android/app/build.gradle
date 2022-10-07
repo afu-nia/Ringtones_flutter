@@ -49,6 +49,7 @@ android {
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        multiDexEnabled true
     }
 
     signingConfigs {
@@ -68,6 +69,10 @@ android {
             signingConfig signingConfigs.release
         }
     }
+}
+
+dependencies {
+    implementation "androidx.multidex:multidex:2.0.1"
 }
 
 flutter {

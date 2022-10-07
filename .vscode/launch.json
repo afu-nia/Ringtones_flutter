@@ -9,17 +9,45 @@
             "request": "launch",
             "type": "dart"
         },
+        // {
+        //     "name": "ringtones_flutter (profile mode)",
+        //     "request": "launch",
+        //     "type": "dart",
+        //     "flutterMode": "profile"
+        // },
+        // {
+        //     "name": "ringtones_flutter (release mode)",
+        //     "request": "launch",
+        //     "type": "dart",
+        //     "flutterMode": "release"
+        // },
+        // {
+        //     "name": "Android",
+        //     "request": "launch",
+        //     "type": "dart",
+        //     "deviceId": "ZY22FDRCDF"
+        // },
         {
-            "name": "ringtones_flutter (profile mode)",
+            "name": "Android",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile"
+            "deviceId": "SLVNW20429001541"
         },
         {
-            "name": "ringtones_flutter (release mode)",
+            "name": "iOS",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "release"
+            "deviceId": "00008030-000A10502E02402E"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "All Devices",
+            "configurations": [
+                "Android",
+                //"AndroiDenisse",
+                "iOS"
+            ],
         }
     ]
 }

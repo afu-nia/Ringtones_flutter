@@ -4,6 +4,7 @@ import 'package:ringtones_flutter/src/domain/contants/colors.dart';
 import 'package:ringtones_flutter/src/domain/models/rington_model.dart';
 import 'package:ringtones_flutter/src/domain/utils/split_name.dart';
 import 'package:ringtones_flutter/src/presentation/theme/text_style.dart';
+import 'package:ringtones_flutter/src/presentation/widgets/image_util.dart';
 
 Widget cardWidget({
   required RingtonModel ringtonModel,
@@ -24,12 +25,10 @@ Widget cardWidget({
               borderRadius: BorderRadius.circular(24),
               child: Hero(
                 tag: 'top-${ringtonModel.name!}',
-                child: Image.network(
-                  'https://www.pintomicasa.com/img/2016/10/Rosa-azul-728x544.jpg',
-                  // ringtonModel.image!,
-                  height: Get.size.height * 0.4,
-                  width: Get.size.width * 0.7,
-                  fit: BoxFit.cover,
+                child: imageUtil(
+                  image: '${ringtonModel.image}',
+                  scaleH: 0.4,
+                  scaleW: 0.7,
                 ),
               ),
             ),
@@ -53,10 +52,12 @@ Widget cardWidget({
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          SplitName.splitName(name: ringtonModel.name!),
-                          style: customBoldText(fontSize: 14),
-                          overflow: TextOverflow.ellipsis,
+                        SizedBox(
+                          width: Get.size.width * 0.5,
+                          child: Text(
+                            SplitName.splitName(name: ringtonModel.name!),
+                            style: customBoldText(fontSize: 16),
+                          ),
                         ),
                         Row(
                           children: [

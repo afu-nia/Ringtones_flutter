@@ -15,8 +15,12 @@ dependencies:
   flutter_zoom_drawer: ^3.0.3
   get: ^4.6.5
   just_audio: ^0.9.28
+  just_audio_background: ^0.0.1-beta.7
   modal_bottom_sheet: ^2.1.2
+  rxdart: ^0.27.5
   shared_preferences: ^2.0.15
+  skeletons: ^0.0.3
+  sleek_circular_slider: ^2.0.1
 
 dev_dependencies:
   flutter_lints: ^2.0.0
@@ -25,3 +29,6 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/img/
