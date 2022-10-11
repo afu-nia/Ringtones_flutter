@@ -10,12 +10,14 @@ environment:
 
 dependencies:
   cupertino_icons: ^1.0.2
+  download: ^0.0.1+1
   flutter:
     sdk: flutter
   flutter_zoom_drawer: ^3.0.3
   get: ^4.6.5
   just_audio: ^0.9.28
   just_audio_background: ^0.0.1-beta.7
+  localstore: ^1.2.3
   modal_bottom_sheet: ^2.1.2
   rxdart: ^0.27.5
   shared_preferences: ^2.0.15

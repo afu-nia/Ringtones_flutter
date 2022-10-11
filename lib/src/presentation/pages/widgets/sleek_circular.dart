@@ -16,7 +16,32 @@ Widget sleekCircular({
       final positionData = snapshot.data;
 
       return positionData == null
-          ? const Center(child: CircularProgressIndicator())
+          ? Stack(
+              // ignore: prefer_const_literals_to_create_immutables
+              children: [
+                Positioned.fill(
+                  child: Center(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Hero(
+                        tag: '$tag-$name',
+                        child: Image.network(
+                          image,
+                          height: Get.size.height * 0.37,
+                          width: Get.size.width * 0.37,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                const Positioned.fill(
+                  child: Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                ),
+              ],
+            )
           : SleekCircularSlider(
               max: positionData.duration.inSeconds.toDouble(),
               min: 0,
@@ -28,10 +53,11 @@ Widget sleekCircular({
                 size: Get.size.width * 0.6,
                 spinnerMode: false,
                 customColors: CustomSliderColors(
-                    dynamicGradient: true,
-                    trackColor: iconsColor,
-                    //progressBarColor: menuBackgroundColor.withOpacity(0.8),
-                    dotColor: Colors.pink),
+                  dynamicGradient: true,
+                  trackColor: iconsColor,
+                  progressBarColor: progressBarColor,
+                  dotColor: dotColor,
+                ),
                 customWidths: CustomSliderWidths(
                   progressBarWidth: 18,
                   handlerSize: 10,

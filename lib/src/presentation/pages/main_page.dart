@@ -28,10 +28,17 @@ class _MainPageState extends State<MainPage> {
         backgroundColor: menuBackgroundColor,
         elevation: 0,
         leading: GestureDetector(
-            onTap: () {
-              ZoomDrawer.of(context)!.open();
-            },
-            child: const Icon(Icons.menu)),
+          onTap: () {
+            ZoomDrawer.of(context)!.open();
+          },
+          child: const Icon(Icons.menu),
+        ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Icon(Icons.search, size: 32),
+          ),
+        ],
       ),
       body: Obx(
         () => Padding(
@@ -88,7 +95,8 @@ class _MainPageState extends State<MainPage> {
                                           buildContext: context,
                                           ringtonModel: ringtonModel,
                                           tag: 'top',
-                                          homeController: _homeController,
+                                          //homeController: _homeController,
+                                          // index: index.toString(),
                                         );
                                       },
                                     );
@@ -111,7 +119,8 @@ class _MainPageState extends State<MainPage> {
                                   buildContext: context,
                                   ringtonModel: ringtonModel,
                                   tag: 'bottom',
-                                  homeController: _homeController,
+                                  //homeController: _homeController,
+                                  // index: index.toString(),
                                 );
                               },
                             );

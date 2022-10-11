@@ -5,7 +5,7 @@ class FavBinding implements Bindings {
   @override
   void dependencies() {
     Get.lazyPut(
-      () => FavControler(
+      () => FavController(
         repositoryInterface: Get.find(),
       ),
     );

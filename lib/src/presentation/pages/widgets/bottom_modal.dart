@@ -13,11 +13,12 @@ import 'package:ringtones_flutter/src/presentation/pages/widgets/sleek_circular.
 import 'package:ringtones_flutter/src/presentation/theme/text_style.dart';
 import 'package:ringtones_flutter/src/presentation/widgets/menu_single.dart';
 
-bottomModalBar(
-    {required BuildContext buildContext,
-    required RingtonModel ringtonModel,
-    required String tag,
-    required HomeController homeController}) {
+bottomModalBar({
+  required BuildContext buildContext,
+  required RingtonModel ringtonModel,
+  required String tag,
+  //required HomeController homeController,
+}) {
   showBarModalBottomSheet(
     context: buildContext,
     builder: (context) {
@@ -26,7 +27,6 @@ bottomModalBar(
         urlAudio: '$ringtoneUrl${ringtonModel.pathRington}',
         urlImage: ringtonModel.image!,
         name: SplitName.splitName(name: ringtonModel.name!),
-        //homeController: homeController,
       );
 
       return Stack(
@@ -53,7 +53,6 @@ bottomModalBar(
           ),
           Positioned(
             top: Get.size.height * 0.7,
-            //bottom: Get.size.height * 0.83,
             left: Get.size.width * .03,
             right: Get.size.width * .03,
             child: SizedBox(
@@ -69,7 +68,7 @@ bottomModalBar(
             top: Get.size.height * 0.83,
             left: Get.size.width * 0.05,
             right: Get.size.width * 0.05,
-            bottom: 0.0, //Get.size.height * 0.01,
+            bottom: 0.0,
             child: Card(
               color: menuBackgroundColor.withOpacity(0.6),
               shape: const RoundedRectangleBorder(
@@ -78,20 +77,7 @@ bottomModalBar(
                 ),
               ),
               elevation: 5,
-              child: menuSingle(functionFav: () async {
-                //await isPlaying();
-              }, functionPlay: () async {
-                if (await isPlaying()) {
-                  pause();
-                  homeController.isPlaying(false);
-                } else {
-                  // if (homeController.isFinish.isTrue) {
-                  //   await loadSong();
-                  // }
-                  play(homeController: homeController);
-                  homeController.isPlaying(true);
-                }
-              }),
+              child: menuSingle(ringtonModel: ringtonModel),
             ),
           ),
         ],

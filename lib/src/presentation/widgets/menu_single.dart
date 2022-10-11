@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ringtones_flutter/src/data/repository/local/services/audio_services.dart';
 import 'package:ringtones_flutter/src/domain/contants/colors.dart';
+import 'package:ringtones_flutter/src/domain/models/rington_model.dart';
 import 'package:ringtones_flutter/src/presentation/pages/home_page/home_controller.dart';
 
-Widget menuSingle(
-    {required Function() functionFav, required Function() functionPlay}) {
-  HomeController _homeController = Get.find();
+Widget menuSingle({RingtonModel? ringtonModel, id = '0'}) {
+  HomeController homeController = Get.find();
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceAround,
     children: [
@@ -14,7 +14,7 @@ Widget menuSingle(
         onTap: () {
           stop();
           //exit();
-          _homeController.isPlaying(false);
+          homeController.isPlaying(false);
           Get.back();
         },
         child: const Icon(
@@ -24,17 +24,20 @@ Widget menuSingle(
         ),
       ),
       GestureDetector(
-        onTap: functionPlay,
+        onTap: homeController.playController,
         child: Obx(
           () => Icon(
-            _homeController.isPlaying.isTrue ? Icons.pause : Icons.play_arrow,
+            homeController.isPlaying.isTrue ? Icons.pause : Icons.play_arrow,
             color: iconsColor,
             size: 64,
           ),
         ),
       ),
       GestureDetector(
-        onTap: functionFav,
+        onTap: () => homeController.addFavController(
+          id: id,
+          ringtonModel: ringtonModel,
+        ),
         child: const Icon(
           Icons.favorite,
           color: iconsColor,

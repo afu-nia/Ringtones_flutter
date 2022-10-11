@@ -27,13 +27,27 @@ class RingtonModel {
     updatedAt = json['updated_at'];
   }
 
-  // factory RingtonModel.empty() => RingtonModel(
-  //       appId: null,
-  //       createdAt: null,
-  //       id: null,
-  //       image: null,
-  //       name: null,
-  //       pathRington: null,
-  //       updatedAt: null,
-  //     );
+  // Map<String, dynamic> toMap() {
+  //   final Map<String, dynamic> data = <String, dynamic>{};
+  //   data['id'] = id;
+  //   data['app_id'] = appId;
+  //   data['name'] = name;
+  //   data['path_rington'] = pathRington;
+  //   data['image'] = image;
+  //   data['created_at'] = createdAt;
+  //   data['updated_at'] = updatedAt;
+  //   return data;
+  // }
+
+  factory RingtonModel.fromMap(Map<String, dynamic> map) {
+    return RingtonModel(
+      id: map['id'],
+      appId: map['app_id'],
+      name: map['name'],
+      pathRington: map['path_rington'],
+      image: map['image'],
+      createdAt: map['created_at'],
+      updatedAt: map['updated_at'],
+    );
+  }
 }

@@ -5,11 +5,11 @@ import 'package:ringtones_flutter/src/domain/contants/global_constants.dart';
 import 'package:ringtones_flutter/src/domain/models/rington_model.dart';
 import 'package:ringtones_flutter/src/domain/response/response_ringtones.dart';
 
-class ConnectionServices extends GetConnect {
+class GetRingtones extends GetConnect {
   Future<ResponseRingtones> getRingtones() async {
     List<RingtonModel> ringtones = [];
     Response response = await get(
-      homeUrl + appId,
+      ringtonsUrl,
       headers: {
         'Accept': 'application/json',
       },

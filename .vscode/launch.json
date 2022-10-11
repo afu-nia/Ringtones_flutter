@@ -9,29 +9,11 @@
             "request": "launch",
             "type": "dart"
         },
-        // {
-        //     "name": "ringtones_flutter (profile mode)",
-        //     "request": "launch",
-        //     "type": "dart",
-        //     "flutterMode": "profile"
-        // },
-        // {
-        //     "name": "ringtones_flutter (release mode)",
-        //     "request": "launch",
-        //     "type": "dart",
-        //     "flutterMode": "release"
-        // },
-        // {
-        //     "name": "Android",
-        //     "request": "launch",
-        //     "type": "dart",
-        //     "deviceId": "ZY22FDRCDF"
-        // },
         {
             "name": "Android",
             "request": "launch",
             "type": "dart",
-            "deviceId": "SLVNW20429001541"
+            "deviceId": "ZY22FDRCDF"
         },
         {
             "name": "iOS",
@@ -45,7 +27,6 @@
             "name": "All Devices",
             "configurations": [
                 "Android",
-                //"AndroiDenisse",
                 "iOS"
             ],
         }

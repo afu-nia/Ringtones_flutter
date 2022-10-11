@@ -53,7 +53,9 @@ Widget cardWidget({
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
-                          width: Get.size.width * 0.5,
+                          width: GetPlatform.isAndroid == true
+                              ? Get.size.width * 0.5
+                              : Get.size.width * 0.45,
                           child: Text(
                             SplitName.splitName(name: ringtonModel.name!),
                             style: customBoldText(fontSize: 16),
