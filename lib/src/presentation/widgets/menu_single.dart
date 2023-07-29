@@ -5,8 +5,12 @@ import 'package:ringtones_flutter/src/domain/contants/colors.dart';
 import 'package:ringtones_flutter/src/domain/models/rington_model.dart';
 import 'package:ringtones_flutter/src/presentation/pages/home_page/home_controller.dart';
 
-Widget menuSingle({RingtonModel? ringtonModel, id = '0'}) {
+Widget menuSingle({
+  RingtonModel? ringtonModel,
+  required String id,
+}) {
   HomeController homeController = Get.find();
+  homeController.isFav(id: id);
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceAround,
     children: [
@@ -38,10 +42,13 @@ Widget menuSingle({RingtonModel? ringtonModel, id = '0'}) {
           id: id,
           ringtonModel: ringtonModel,
         ),
-        child: const Icon(
-          Icons.favorite,
-          color: iconsColor,
-          size: 36,
+        child: Obx(
+          () => Icon(
+            Icons.favorite,
+            color:
+                homeController.isFavIcon.isTrue ? Colors.redAccent : iconsColor,
+            size: 36,
+          ),
         ),
       ),
     ],

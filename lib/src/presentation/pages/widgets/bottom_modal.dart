@@ -17,7 +17,7 @@ bottomModalBar({
   required BuildContext buildContext,
   required RingtonModel ringtonModel,
   required String tag,
-  //required HomeController homeController,
+  required String id,
 }) {
   showBarModalBottomSheet(
     context: buildContext,
@@ -77,7 +77,7 @@ bottomModalBar({
                 ),
               ),
               elevation: 5,
-              child: menuSingle(ringtonModel: ringtonModel),
+              child: menuSingle(ringtonModel: ringtonModel, id: id),
             ),
           ),
         ],

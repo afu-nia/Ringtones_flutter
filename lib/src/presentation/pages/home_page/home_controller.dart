@@ -16,6 +16,7 @@ class HomeController extends GetxController {
   RxList<RingtonModel> ringtons = <RingtonModel>[].obs;
   RxBool isPlaying = false.obs;
   RxBool isFinish = false.obs;
+  RxBool isFavIcon = false.obs;
 
   @override
   void onInit() async {
@@ -37,23 +38,24 @@ class HomeController extends GetxController {
     }
   }
 
+  void isFav({required String id}) async {
+    print('ID--> $id');
+    bool isFav = await repositoryInterface.isFav(id: id);
+    isFavIcon(isFav);
+  }
+
   void addFavController({
-    String id = '0',
+    required String id,
     RingtonModel? ringtonModel,
   }) async {
-    int i = int.parse(id);
-    if (i == 0) {
-      final id =
-          LocalPreferencesStorage.storeFavs.collection(collectionFavs).doc().id;
-      print('add favorite-->: $id');
-      await repositoryInterface.addFavorite(ringtonFav: ringtonModel!, id: id);
-    } else {
-      bool? isFav = await repositoryInterface.isFav(id: id);
+    bool isFav = await repositoryInterface.isFav(id: id);
 
-      if (isFav) {
-        print('delete favorite-->:');
-        // repositoryInterface.deleteFav(id: id);
-      }
+    if (isFav) {
+      repositoryInterface.deleteFav(id: id);
+      isFavIcon(false);
+    } else {
+      await repositoryInterface.addFavorite(ringtonFav: ringtonModel!, id: id);
+      isFavIcon(true);
     }
   }
 }

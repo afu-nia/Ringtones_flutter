@@ -14,24 +14,29 @@ class FavPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Obx(() => ListView.builder(
-              itemCount: favController.ringtonsFav.length,
-              itemBuilder: (context, index) {
-                RingtonModel ringtonModel = favController.ringtonsFav[index];
-                return rowRigton(
-                  ringtonModel: ringtonModel,
-                  function: () {
-                    bottomModalBar(
-                      buildContext: context,
-                      ringtonModel: ringtonModel,
-                      tag: 'bottom',
-                      //homeController: _homeController,
-                      // index: index.toString(),
-                    );
-                  },
-                );
-              },
-            )),
+        child: Obx(
+          () => ListView.builder(
+            itemCount: favController.ringtonsFav.length,
+            itemBuilder: (context, index) {
+              RingtonModel ringtonModel = favController.ringtonsFav[index];
+              return rowRigton(
+                ringtonModel: ringtonModel,
+                // fav: 'fav',
+                function: () {
+                  print('fav-$index');
+                  bottomModalBar(
+                    buildContext: context,
+                    ringtonModel: ringtonModel,
+                    tag: 'bottom',
+                    id: ringtonModel.id.toString(),
+                    //homeController: _homeController,
+                    // index: index.toString(),
+                  );
+                },
+              );
+            },
+          ),
+        ),
       ),
     );
   }

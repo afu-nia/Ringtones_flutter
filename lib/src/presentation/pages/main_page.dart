@@ -95,8 +95,7 @@ class _MainPageState extends State<MainPage> {
                                           buildContext: context,
                                           ringtonModel: ringtonModel,
                                           tag: 'top',
-                                          //homeController: _homeController,
-                                          // index: index.toString(),
+                                          id: ringtonModel.id.toString(),
                                         );
                                       },
                                     );
@@ -119,8 +118,7 @@ class _MainPageState extends State<MainPage> {
                                   buildContext: context,
                                   ringtonModel: ringtonModel,
                                   tag: 'bottom',
-                                  //homeController: _homeController,
-                                  // index: index.toString(),
+                                  id: ringtonModel.id.toString(),
                                 );
                               },
                             );

@@ -21,6 +21,7 @@ class FavController extends GetxController {
     final items = await LocalPreferencesStorage.storeFavs
         .collection(collectionFavs)
         .get();
+
     items?.forEach((key, value) {
       ringtonsFav.add(RingtonModel.fromMap(value));
     });
